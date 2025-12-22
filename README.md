@@ -26,7 +26,7 @@ El script incluye dos escenarios de demostración:
 
 ***Especificaciones de Seguridad***
 
-Este software ha sido desarrollado como una prueba de concepto (PoC) en implementación de algoritmos criptográficos y teoría de números.
+Este software ha sido desarrollado como una prueba de concepto en implementación de algoritmos criptográficos y teoría de números.
 Aunque la lógica matemática es precisa y funcional para cifrar y descifrar mensajes, esta implementación no está destinada a entornos de producción por los siguientes criterios de seguridad industrial:
 - Ausencia de Padding: Se implementa "Textbook RSA", el cual carece de esquemas como OAEP (Optimal Asymmetric Encryption Padding). En un entorno real, el padding es indispensable para evitar ataques de maleabilidad y garantizar la seguridad semántica.
 - Generación de Entropía: El sistema utiliza el generador de números aleatorios estándar de Python para la selección de primos. Para aplicaciones críticas, se requeriría un generador de números aleatorios criptográficamente seguro (CSPRNG) conforme a normativas de seguridad.
