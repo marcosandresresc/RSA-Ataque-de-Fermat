@@ -1,4 +1,4 @@
-import random
+import secrets
 import time
 
 ################################ Funciones matemáticas ################################
@@ -120,7 +120,8 @@ def es_primo_probable(n, rondas=40):
         return False
 
     for i in range(0, rondas, 1):
-        a = random.randrange(2, n - 1)
+        # Genera un número seguro en el rango [2, n-2]
+        a = secrets.randbelow(n - 4) + 2 
         if not ronda_miller_rabin(n, a):
             return False
 
@@ -133,7 +134,7 @@ def generar_impar_aleatorio(bits):
     - Se fuerza el bit más alto para que tenga el tamaño correcto.
     - Se fuerza el bit menos significativo para que sea impar.
     """
-    n = random.getrandbits(bits)
+    n = secrets.randbits(bits)
     n |= (1 << (bits - 1))
     n |= 1
     return n
@@ -310,4 +311,5 @@ def demo_intercepcion_exitosa():
 
 demo_rsa()
 demo_intercepcion_fallida()
+
 demo_intercepcion_exitosa()
